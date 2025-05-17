@@ -28,7 +28,7 @@ cd insyd-poc-frontend
 - **Real-time Updates**: Instant display of new notifications
 
 
-## 🔌API Endpoints
+## API Endpoints
 
 | Method | Endpoint                | Description                     |
 |--------|-------------------------|---------------------------------|
