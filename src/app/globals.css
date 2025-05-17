@@ -1,26 +1,71 @@
+
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --background-light: #f0f4f8;
+  --background-dark: #0a0a0a;
+  --foreground-light: #171717;
+  --foreground-dark: #ededed;
+  --primary-color: #4f46e5;
+  --secondary-color: #6c757d;
+  --border-radius: 16px;
+  --transition-speed: 0.3s;
+  --card-bg-light: #ffffff;
+  --card-bg-dark: #1a1a1a;
+  --accent-color: #8b5cf6;
+  --shadow-color: rgba(0, 0, 0, 0.25);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background-light: #121212;
+    --foreground-light: #ededed;
+    --card-bg-light: #1a1a1a;
+    --card-bg-dark: #2a2a2a;
+    --shadow-color: rgba(255, 255, 255, 0.1);
   }
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
+  background: radial-gradient(circle, var(--background-light) 0%, #dbeafe 100%);
+  color: var(--foreground-light);
   font-family: Arial, Helvetica, sans-serif;
+  transition: background-color var(--transition-speed), color var(--transition-speed);
+}
+
+.sticky-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background-color: var(--card-bg-light);
+  padding: 1.5rem;
+  box-shadow: 0 4px 12px var(--shadow-color);
+  border-radius: var(--border-radius);
+  backdrop-filter: blur(10px);
+}
+
+/* Scroll Styles */
+.scroll-container {
+  max-height: 80vh;
+  overflow-y: auto;
+  padding: 1.5rem;
+  background-color: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border-radius: var(--border-radius);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* Smooth Scroll */
+.scroll-container::-webkit-scrollbar {
+  width: 8px;
+}
+
+.scroll-container::-webkit-scrollbar-track {
+  background: var(--card-bg-light);
+}
+
+.scroll-container::-webkit-scrollbar-thumb {
+  background-color: var(--primary-color);
+  border-radius: 10px;
+  border: 2px solid var(--card-bg-light);
 }
